@@ -1,4 +1,4 @@
-import { View, Picker, StyleSheet, TextInput, Button, TouchableOpacity, Text,ScrollView } from "react-native";
+import { View, Picker, StyleSheet, TextInput, Button, TouchableOpacity, Text, ScrollView } from "react-native";
 import React, { useContext, Component, useState, useEffect } from "react";
 
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
@@ -51,12 +51,12 @@ export default function RegisterBaru() {
 
   return (
     <ScrollView >
-    <View style={styles.container}>
-      <DataRegistrasi handleData={handleChange} handleTanggalRegitrasi={setTanggalRegistrasi}  />
+      <View style={styles.container}>
+        <DataRegistrasi handleData={handleChange} handleTanggalRegitrasi={setTanggalRegistrasi} />
 
-      <DataPutor handleData={handleChange} handleTanggalPembayaran={setTanggalPembayaran} />
-      <DataPribadi handleData={handleChange} handleKacamata={setKacamata} handleCacat={setCacat} handleTanggalLahir={setTanggalLahir} />
-    </View>
+        <DataPutor handleData={handleChange} handleTanggalPembayaran={setTanggalPembayaran} />
+        <DataPribadi handleData={handleChange} handleKacamata={setKacamata} handleCacat={setCacat} handleTanggalLahir={setTanggalLahir} />
+      </View>
     </ScrollView >
   );
 }

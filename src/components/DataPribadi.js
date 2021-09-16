@@ -7,7 +7,7 @@ import { UserContext } from "../contexts/userContext";
 import { useNavigation } from "@react-navigation/native";
 import * as DocumentPicker from "expo-document-picker";
 
-export default function DataPribadi({ handleData,handleKacamata,handleCacat,handleTanggalLahir }) {
+export default function DataPribadi({ handleData, handleKacamata, handleCacat, handleTanggalLahir }) {
   const pickDocument = async () => {
     let result = await DocumentPicker.getDocumentAsync({});
     console.log(result.uri);
@@ -20,7 +20,7 @@ export default function DataPribadi({ handleData,handleKacamata,handleCacat,hand
   return (
     <View style={styles.container}>
       <Text>Data Pribadi</Text>
-   
+
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -44,7 +44,7 @@ export default function DataPribadi({ handleData,handleKacamata,handleCacat,hand
       </View>
 
       <Text>Berkacamata</Text>
-       <Picker
+      <Picker
         // selectedValue={stationCode}
         style={{ height: 50, width: 150 }}
         onValueChange={(itemValue, itemIndex) => handleKacamata(itemValue)}
@@ -102,38 +102,38 @@ export default function DataPribadi({ handleData,handleKacamata,handleCacat,hand
         />
       </View>
       <View>
-      <Text> Cacat FIsik Dan Lain2</Text>
-       <Picker
-        // selectedValue={stationCode}
-        style={{ height: 50, width: 150 }}
-        onValueChange={(itemValue, itemIndex) => handleCacat(itemValue)}
-      >
-        <Picker.Item label="Pilih" value="null" />
-        <Picker.Item label="Ya" value="ya" />
-        <Picker.Item label="Tidak" value="tidak" />
-      </Picker>
+        <Text> Cacat FIsik Dan Lain2</Text>
+        <Picker
+          // selectedValue={stationCode}
+          style={{ height: 50, width: 150 }}
+          onValueChange={(itemValue, itemIndex) => handleCacat(itemValue)}
+        >
+          <Picker.Item label="Pilih" value="null" />
+          <Picker.Item label="Ya" value="ya" />
+          <Picker.Item label="Tidak" value="tidak" />
+        </Picker>
       </View>
 
       <View>
-      <TouchableOpacity>
-            <Button
-              title="upload Foto Andae"
-              color="black"
-              onPress={pickDocument}
-            />
-      </TouchableOpacity>
+        <TouchableOpacity>
+          <Button
+            title="upload Foto Andae"
+            color="black"
+            onPress={pickDocument}
+          />
+        </TouchableOpacity>
       </View>
       <View>
-      <TouchableOpacity>
-            <Button
-              title="upload Foto Tanda Tangan"
-              color="black"
+        <TouchableOpacity>
+          <Button
+            title="upload Foto Tanda Tangan"
+            color="black"
             onValueChange={(itemValue, itemIndex) => handleCacat(itemValue)}
-              onPress={pickDocument}
-            />
-      </TouchableOpacity>
+            onPress={pickDocument}
+          />
+        </TouchableOpacity>
       </View>
-      
+
     </View>
   );
 }
