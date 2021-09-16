@@ -5,9 +5,14 @@ import DateField from 'react-native-datefield';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import { UserContext } from "../contexts/userContext";
 import { useNavigation } from "@react-navigation/native";
+import * as DocumentPicker from "expo-document-picker";
 
 export default function DataPribadi({ handleData,handleKacamata,handleCacat,handleTanggalLahir }) {
-
+  const pickDocument = async () => {
+    let result = await DocumentPicker.getDocumentAsync({});
+    console.log(result.uri);
+    console.log(result);
+  };
   const navigation = useNavigation();
   const { state, dispatch } = useContext(UserContext);
   // console.log(state)
@@ -15,7 +20,7 @@ export default function DataPribadi({ handleData,handleKacamata,handleCacat,hand
   return (
     <View style={styles.container}>
       <Text>Data Pribadi</Text>
-
+   
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -96,6 +101,7 @@ export default function DataPribadi({ handleData,handleKacamata,handleCacat,hand
           onChange={(e) => handleData(e, "pendidikan")}
         />
       </View>
+      <View>
       <Text> Cacat FIsik Dan Lain2</Text>
        <Picker
         // selectedValue={stationCode}
@@ -106,6 +112,28 @@ export default function DataPribadi({ handleData,handleKacamata,handleCacat,hand
         <Picker.Item label="Ya" value="ya" />
         <Picker.Item label="Tidak" value="tidak" />
       </Picker>
+      </View>
+
+      <View>
+      <TouchableOpacity>
+            <Button
+              title="upload Foto Andae"
+              color="black"
+              onPress={pickDocument}
+            />
+      </TouchableOpacity>
+      </View>
+      <View>
+      <TouchableOpacity>
+            <Button
+              title="upload Foto Tanda Tangan"
+              color="black"
+            onValueChange={(itemValue, itemIndex) => handleCacat(itemValue)}
+              onPress={pickDocument}
+            />
+      </TouchableOpacity>
+      </View>
+      
     </View>
   );
 }

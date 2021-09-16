@@ -21,6 +21,8 @@ export default function RegisterBaru() {
 
   //data putor
   const [tanggalPembayaran, setTanggalPembayaran] = useState();
+  const [Foto, setFoto] = useState();
+  const [FotoTTD, setFotoTTD] = useState();
 
   const { state, dispatch } = useContext(UserContext);
   console.log(kacamata)
