@@ -7,11 +7,16 @@ import { UserContext } from "../contexts/userContext";
 import { useNavigation } from "@react-navigation/native";
 import * as DocumentPicker from "expo-document-picker";
 
-export default function DataPribadi({ handleData, handleKacamata, handleCacat, handleTanggalLahir }) {
-  const pickDocument = async () => {
+export default function DataPribadi({ handleFoto,handleFotoTTD,handleSubmit,handleData, handleKacamata, handleCacat, handleTanggalLahir }) {
+  const pickFoto = async () => {
     let result = await DocumentPicker.getDocumentAsync({});
-    console.log(result.uri);
-    console.log(result);
+    // console.log(result);
+    handleFoto(result)
+  };
+  const pickFotoTTD = async () => {
+    let result = await DocumentPicker.getDocumentAsync({});
+    // console.log(result);
+    handleFotoTTD(result)
   };
   const navigation = useNavigation();
   const { state, dispatch } = useContext(UserContext);
@@ -119,7 +124,7 @@ export default function DataPribadi({ handleData, handleKacamata, handleCacat, h
           <Button
             title="upload Foto Andae"
             color="black"
-            onPress={pickDocument}
+            onPress={pickFoto}
           />
         </TouchableOpacity>
       </View>
@@ -128,9 +133,20 @@ export default function DataPribadi({ handleData, handleKacamata, handleCacat, h
           <Button
             title="upload Foto Tanda Tangan"
             color="black"
-            onValueChange={(itemValue, itemIndex) => handleCacat(itemValue)}
-            onPress={pickDocument}
+            onPress={pickFotoTTD}
           />
+        </TouchableOpacity>
+      </View>
+      <View>
+      <TouchableOpacity
+          style={{
+            backgroundColor: "#487eb0",
+            height: 40,
+            width: 150,
+          }}
+          onPress={handleSubmit}
+        >
+          <Text>Submit</Text>
         </TouchableOpacity>
       </View>
 

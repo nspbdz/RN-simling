@@ -9,9 +9,9 @@ import RegisterBaru from "./RegisterBaru"
 export default function Home({ navigation }) {
   return (
     <View >
-      <Login navigation={navigation} />
+      {/* <Login navigation={navigation} /> */}
       {/* <List /> */}
-      {/* <RegisterBaru />  */}
+      <RegisterBaru /> 
     </View>
   );
 }
